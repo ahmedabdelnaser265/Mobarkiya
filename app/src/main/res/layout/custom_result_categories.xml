@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="end|center_vertical"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="#fff"
+    android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/subCatImgShowMoreResult"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/arraw_left"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/subCatNameResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:text="Sub Category Name" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/subCatNumberResult"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#000"
+                android:textStyle="normal"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
+                android:text="0123456789"/>
+
+            <ImageView
+                android:id="@+id/subCatcallNumberResult"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/table_view_call"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/subCatImageResult"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/other_cat"/>
+
+</LinearLayout>
+
+
+</LinearLayout>

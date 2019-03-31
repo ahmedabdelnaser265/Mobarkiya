@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TestMobarkiya</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="Home">Home</string>
+    <string name="catname">cat name</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="CompanyName">No CompanyName!</string>
+    <string name="companyDescription">No Compay Description!</string>
+    <string name="nocompanyPhone">Company Phone</string>
+    <string name="nocompnyEmail">No Company Email!</string>
+    <string name="nocompanyWebLink">No Company Web link !</string>
+    <string name="nocompnyDescrip">No Company Description !</string>
+    <string name="mainHome">الرئيسية</string>
+    <string name="shareAdDetails">View this ad on AlMubarkiya application</string>
+</resources>

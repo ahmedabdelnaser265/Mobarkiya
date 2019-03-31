@@ -1,0 +1,34 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Custom" parent="android:Theme.DeviceDefault.Dialog">
+        <item name="DialogTitleAppearance">
+            @android:style/TextAppearance.Medium
+        </item>
+        <item name="android:background">
+            @color/colorPrimary
+        </item>
+        <item name="DialogTitleText">
+
+            إنتظر من فضلك ..،
+        </item>
+        <item name="android:textColor">
+            #fff
+        </item>
+        <item name="DialogSpotColor">
+            #fff
+        </item>
+
+        <item name="DialogSpotCount">
+            5
+        </item>
+        <item name="android:fontFamily">@font/ge_dinar</item>
+
+    </style>
+
+</resources>
