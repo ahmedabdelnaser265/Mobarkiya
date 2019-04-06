@@ -29,6 +29,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,6 +66,7 @@ import static com.hardtask.testmobarkiya.HomeActivity.homeText;
 import static com.hardtask.testmobarkiya.HomeActivity.likeImageHome;
 import static com.hardtask.testmobarkiya.HomeActivity.searchImageHome;
 import static com.hardtask.testmobarkiya.HomeActivity.shareImageHome;
+import static com.hardtask.testmobarkiya.HomeActivity.showHideLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -177,6 +180,15 @@ public class ProfileFragment extends Fragment {
     private void initViews(View view)
 
     {
+
+        //Load animation
+        final Animation slide_down = AnimationUtils.loadAnimation(context,
+                R.anim.slide_down);
+
+        final Animation slide_up = AnimationUtils.loadAnimation(context,
+                R.anim.slide_up);
+
+        showHideLayout.setVisibility(View.GONE);
 
         companyName = (TextView)view.findViewById(R.id.txtNameCompanySubCat);
 

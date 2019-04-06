@@ -22,6 +22,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -40,6 +43,7 @@ import retrofit.client.Response;
 import static com.hardtask.testmobarkiya.HomeActivity.homeText;
 import static com.hardtask.testmobarkiya.HomeActivity.likeImageHome;
 import static com.hardtask.testmobarkiya.HomeActivity.shareImageHome;
+import static com.hardtask.testmobarkiya.HomeActivity.showHideLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -115,6 +119,14 @@ public class SubCategoryResultFrafment extends Fragment {
     }
 
     private void initViews(View view) {
+
+        //Load animation
+        final Animation slide_down = AnimationUtils.loadAnimation(context,
+                R.anim.slide_down);
+
+        final Animation slide_up = AnimationUtils.loadAnimation(context,
+                R.anim.slide_up);
+
         recyclerView=  (RecyclerView) view.findViewById(R.id.resultCatRecyclerView);
 
         containerLayout = (FrameLayout)view.findViewById(R.id.detailsContainer);
@@ -129,6 +141,52 @@ public class SubCategoryResultFrafment extends Fragment {
         likeImageHome.setVisibility(View.GONE);
 
         shareImageHome.setVisibility(View.GONE);
+
+        showHideLayout.setVisibility(View.VISIBLE);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_FLING) {
+                    // Do something
+                } else if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    // Do something
+                } else {
+                    // Do something
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+                super.onScrolled(recyclerView, dx, dy);
+
+
+                if(dy > 0){
+                    //Scroll list Down
+
+                    showHideLayout.startAnimation(slide_up);
+
+                    showHideLayout.setVisibility(View.GONE);
+
+
+
+                }
+                else{
+
+                    //This Your Top View do Something
+
+                    showHideLayout.startAnimation(slide_down);
+
+                    showHideLayout.setVisibility(View.VISIBLE);
+
+
+                }
+            }
+        });
+
 
     }
 

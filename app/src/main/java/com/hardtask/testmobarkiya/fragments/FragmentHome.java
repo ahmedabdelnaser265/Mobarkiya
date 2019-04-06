@@ -17,6 +17,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +36,10 @@ import dmax.dialog.SpotsDialog;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+
+import static com.hardtask.testmobarkiya.HomeActivity.showHideLayout;
+import static com.hardtask.testmobarkiya.HomeActivity.slideDownLayout;
+import static com.hardtask.testmobarkiya.HomeActivity.slideUpLayout;
 
 public class FragmentHome extends Fragment {
 
@@ -55,6 +62,8 @@ public class FragmentHome extends Fragment {
     public Context context ;
 
     public static ImageView shareImageHome ,searchImageHome,likeImageHome,disLikeHome ;
+
+    boolean isUserScrolling ;
 
 
     @Override
@@ -80,6 +89,15 @@ public class FragmentHome extends Fragment {
 
     {
 
+        //Load animation
+        final Animation slide_down = AnimationUtils.loadAnimation(context,
+                R.anim.slide_down);
+
+        final Animation slide_up = AnimationUtils.loadAnimation(context,
+                R.anim.slide_up);
+
+// Start animation
+
         //setTypeFace..,
         typeface = ResourcesCompat.getFont(context,R.font.ge_dinar);
 
@@ -89,8 +107,55 @@ public class FragmentHome extends Fragment {
 
         spotsDialog = new SpotsDialog(context,R.style.Custom);
 
+        showHideLayout.setVisibility(View.VISIBLE);
+
+        //setup recyclerView hide show ..,
+        catRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_FLING) {
+                    // Do something
+                } else if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                    // Do something
+                } else {
+                    // Do something
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+                super.onScrolled(recyclerView, dx, dy);
+
+
+                    if(dy > 0){
+                        //Scroll list Down
+
+                        showHideLayout.startAnimation(slide_up);
+
+                        showHideLayout.setVisibility(View.GONE);
+
+
+
+                    }
+                    else{
+
+                            //This Your Top View do Something
+
+                        showHideLayout.startAnimation(slide_down);
+
+                        showHideLayout.setVisibility(View.VISIBLE);
+
+
+                    }
+            }
+        });
+
 
     }
+
 
     private void getCategories(String v1 , String v2 , String v3)
     {
