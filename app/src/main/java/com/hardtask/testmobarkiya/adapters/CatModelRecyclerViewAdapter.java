@@ -43,6 +43,8 @@ public class CatModelRecyclerViewAdapter extends RecyclerView.Adapter<CatModelRe
 
         Listner = listner;
 
+        //data
+
     }
 
     public interface onClick
